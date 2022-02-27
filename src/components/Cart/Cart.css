@@ -1,0 +1,10 @@
+.processButton{
+    padding: 8px;
+    color: darkred;
+    background-color: orange;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 500;
+    text-decoration: none;
+}
