@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
+import Cart from '../Cart/Cart';
 import ReviewCart from '../ReviewCart/ReviewCart';
 
 
 const Review = () => {
-    let   cart = JSON.parse(localStorage.getItem('cart'));
-    const [cart1, setCart1] = useState(cart)
+    let   cart1 = JSON.parse(localStorage.getItem('cart'));
+    const [cart, setCart] = useState(cart1)
  
     return (
-        <div>
-           {
-                cart1.map(data=> <ReviewCart cartFunction={setCart1} cart={data}> </ReviewCart> ) 
-           }
+        <div className='shopContainer'>
+          <div className="productContainer"> {
+                cart.map(data=> <ReviewCart cartFunction={setCart} cart={data}> </ReviewCart> ) 
+           } </div>
+           <div className="cartContainer">
+                    <Cart cart={cart}></Cart>
+            </div>
         </div>
     );
 };

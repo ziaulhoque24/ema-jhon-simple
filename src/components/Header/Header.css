@@ -8,13 +8,13 @@ nav {
     line-height: 40px;
     background-color: black;
 }
-nav a {
+nav a, nav span {
     color: white;
     text-decoration: none;
     margin-left: 10px;
     padding: 5px;
 
 }
-nav a:hover{
+nav a:hover, nav span:hover{
     background-color: gray;
 }
