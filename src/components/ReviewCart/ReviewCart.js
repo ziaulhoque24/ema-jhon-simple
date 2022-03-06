@@ -6,10 +6,7 @@ const ReviewCart = (props) => {
     // Remove product function from cart
     const handleRemoveFromCart = (data)=> {
             const cart = JSON.parse(localStorage.getItem('cart'));
-            console.log(cart)
             const sameProduct = cart.find(kk => {
-                console.log(data)
-                console.log(kk.key === data)
             return    kk.key === data});
     if(sameProduct){
         const quantityCart = sameProduct.quantityCart;

@@ -10,7 +10,7 @@ const Review = () => {
     return (
         <div className='shopContainer'>
           <div className="productContainer"> {
-                cart.map(data=> <ReviewCart cartFunction={setCart} cart={data}> </ReviewCart> ) 
+                cart.map(data=> <ReviewCart cartFunction={setCart} key={data.key} cart={data}> </ReviewCart> ) 
            } </div>
            <div className="cartContainer">
                     <Cart cart={cart}></Cart>

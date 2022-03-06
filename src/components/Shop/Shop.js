@@ -5,12 +5,12 @@ import './Shop.css';
 const Shop = () => {
     const existCart = JSON.parse(localStorage.getItem('cart')) || [];
     let [products, setProducts] = useState([]);
-    const [cart , setCart] = useState(existCart);
+    const [cart1 , setCart] = useState(existCart);
 // handle add product
  const handleAddProduct = (product)=> {
-    const sameProduct = cart.find(key => key.key === product.key);
+    const sameProduct = cart1.find(key => key.key === product.key);
     if(sameProduct){
-        const remainingCart = cart.filter(user => user.key !== sameProduct.key);
+        const remainingCart = cart1.filter(user => user.key !== sameProduct.key);
         const count = sameProduct.quantityCart+ 1;
         sameProduct.quantityCart = count;
         const newCart = [...remainingCart, sameProduct];
@@ -18,9 +18,9 @@ const Shop = () => {
         localStorage.setItem('cart', JSON.stringify(newCart));
     }else{
         product.quantityCart = 1;
-        const newCart = [...cart , product];
-        setCart(newCart);
-        localStorage.setItem('cart', JSON.stringify(newCart));
+        const newCart1 = [...cart1 , product];
+        setCart(newCart1);
+        localStorage.setItem('cart', JSON.stringify(newCart1));
      
     }
     
@@ -36,11 +36,11 @@ const Shop = () => {
         <div className='shopContainer'>
             <div className="productContainer">
                 {
-                    products.map(product => <Product pd={product} handleAddProduct={handleAddProduct}></Product>)
+                    products.map(product => <Product key={product.key} pd={product} handleAddProduct={handleAddProduct}></Product>)
                 }
             </div>
             <div className="cartContainer">
-                    <Cart cart={cart}></Cart>
+                    <Cart cart={cart1}></Cart>
             </div>
         </div>
     );

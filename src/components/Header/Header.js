@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import logo from '../../images/logo.png';
 import './Header.css';
 import { UserContext } from '../../App';
@@ -18,9 +18,9 @@ const Header = () => {
         <div className='header'>
             <img src={logo} alt="" />
             <nav>
-                <Link to="/shop">Shop</Link>
-                <Link to="/review">Order review</Link>
-                <Link to="/processed">Processed</Link>
+                <NavLink to="/shop">Shop</NavLink>
+                <NavLink to="/review">Order review</NavLink>
+                <NavLink to="/processed">Processed</NavLink>
                 {loggedUser.name && <span><span style={{color : "red"}}>{loggedUser?.name}</span>
                 <button onClick={signOut}>Sign Out</button> </span>}
             </nav>

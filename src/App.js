@@ -1,6 +1,7 @@
 import  React, { createContext, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import './App.css';
+import FakaComponent from "./components/FakaComponent/FakaComponent";
 import Header from './components/Header/Header';
 import Login from "./components/Login/Login";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
@@ -15,10 +16,11 @@ function App() {
     <UserContext.Provider value={[loggedUser, setLoggedUser ]}>
       <Header/>
       <Routes>
+        <Route path="/faka" element={<FakaComponent></FakaComponent>}></Route>
         <Route path="/*" element={<Shop></Shop>} />
         <Route path="/shop/*" element={<Shop></Shop>} />
-        <Route path="/proceed" element={<PrivateRoute> <Processed/></PrivateRoute>} />
-        <Route path="/review" element={<Review></Review>} />
+        <Route path="/proceed/*" element={<PrivateRoute> <Processed/></PrivateRoute>} />
+        <Route path="/review/*" element={<Review></Review>} />
         <Route path="/login" element={<Login/>} />
       </Routes>
       

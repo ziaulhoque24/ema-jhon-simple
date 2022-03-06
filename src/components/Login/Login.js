@@ -7,7 +7,8 @@ import {googleSignIn, handleFbSign, handleCreateWithEmailAndPass, handleSignInWi
 // const app = 
 function Login() {
 
-const [loggedUser, setLoggedUser ] = useContext(UserContext);
+let setLoggedUser = useContext(UserContext);
+   setLoggedUser = setLoggedUser[1]
 let navigate = useNavigate();
 let location = useLocation();
 let from = location.state?.from?.pathname || "/";
@@ -18,7 +19,7 @@ const [user , setUser] = useState({
     password: '',
     newUser: false
   })
-  const [logIn , setLoIn] = useState(false);
+
 
   // google sign in
   const handleSignInWithGoogle =()=> {
@@ -26,7 +27,6 @@ const [user , setUser] = useState({
           .then(res=>{
               setUser(res)
               setLoggedUser(res);
-              setLoIn(true);
               navigate(from, { replace: true });
           })
          }
@@ -38,7 +38,6 @@ const fbSignIn= ()=>{
       if(typeof res == "object"){
         setUser(res)
         setLoggedUser(res);
-        setLoIn(true);
         navigate(from, { replace: true });
       }else{
         user.err = res;
@@ -62,7 +61,6 @@ if(newUser){
                 if(typeof res == "object"){
                   setUser(res);
                   setLoggedUser(res);
-                  setLoIn(true);
                   navigate(from, { replace: true });
                 }else{
                   user.err = res;
@@ -78,7 +76,6 @@ else{
     if(typeof res == "object"){
       setUser(res);
       setLoggedUser(res);
-      setLoIn(true);
       navigate(from, { replace: true });
     }else{
       user.err = res;

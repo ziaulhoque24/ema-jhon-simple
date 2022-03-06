@@ -18,3 +18,7 @@ nav a, nav span {
 nav a:hover, nav span:hover{
     background-color: gray;
 }
+.active{
+    background-color: green;
+    color: red;
+}
